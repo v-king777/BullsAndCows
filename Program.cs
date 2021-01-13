@@ -12,6 +12,9 @@ namespace BullsAndCows
             string str = strRaw.Replace(" ", "");
             bool checkLenght = str.Length == 4;
 
+            uint num;
+            bool checkNum = UInt32.TryParse(str, out num);
+
             int count = 0;
             for (int i = 0; i < str.Length; i++)
             {
@@ -25,14 +28,13 @@ namespace BullsAndCows
             }
             bool checkUniq = count == str.Length;
 
-            uint num;
-            bool checkNum = UInt32.TryParse(str, out num);
+            if (checkLenght == false | checkNum == false | checkUniq == false)
+            {
+                Console.WriteLine("Неверный ввод данных!");
+            }
 
-            Console.WriteLine("Проверка на длину - {0}", checkLenght);
-            Console.WriteLine("Проверка на число - {0}", checkNum);
-            Console.WriteLine("Проверка на уникальность - {0}", checkUniq);
-            Console.WriteLine("Строка = {0}", str);
-            Console.WriteLine("Число = {0}", num);
+            Console.WriteLine("\nДля продолжения нажмите любую клавишу . . .");
+            Console.ReadKey();
         }
     }
 }
