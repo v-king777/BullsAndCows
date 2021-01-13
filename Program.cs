@@ -6,15 +6,23 @@ namespace BullsAndCows
     {
         static void Main(string[] args)
         {
-            Console.Write("Введите 4-х значное целое число из разных цифр: ");
-            string strRaw = Console.ReadLine();
+            do
+            {
+                Console.Write("Введите 4-х значное целое число из разных цифр: ");
+                string s = Console.ReadLine();
+                bool check = CheckString(s);
+            } while (check == true);
+            
+            Console.WriteLine("\nДля продолжения нажмите любую клавишу . . .");
+            Console.ReadKey();
+        }
 
-            string str = strRaw.Replace(" ", "");
+        static bool CheckString(string raw)
+        {
+            string str = raw.Replace(" ", "");
             bool checkLenght = str.Length == 4;
-
             uint num;
             bool checkNum = UInt32.TryParse(str, out num);
-
             int count = 0;
             for (int i = 0; i < str.Length; i++)
             {
@@ -27,14 +35,12 @@ namespace BullsAndCows
                 }
             }
             bool checkUniq = count == str.Length;
-
             if (checkLenght == false | checkNum == false | checkUniq == false)
             {
                 Console.WriteLine("Неверный ввод данных!");
+                return false;
             }
-
-            Console.WriteLine("\nДля продолжения нажмите любую клавишу . . .");
-            Console.ReadKey();
+            return true;
         }
     }
 }
