@@ -6,20 +6,24 @@ namespace BullsAndCows
     {
         static void Main(string[] args)
         {
-            do
+            Console.Write("Введите 4-х значное целое число из разных цифр: ");
+            string s = Console.ReadLine();
+            CheckString(s);
+            while (CheckString(s) == false)
             {
+                Console.WriteLine("Неверный ввод данных!");
                 Console.Write("Введите 4-х значное целое число из разных цифр: ");
-                string s = Console.ReadLine();
-                bool check = CheckString(s);
-            } while (check == true);
+                s = Console.ReadLine();
+                CheckString(s);
+            }
             
             Console.WriteLine("\nДля продолжения нажмите любую клавишу . . .");
             Console.ReadKey();
         }
 
-        static bool CheckString(string raw)
+        static bool CheckString(string rawStr)
         {
-            string str = raw.Replace(" ", "");
+            string str = rawStr.Replace(" ", "");
             bool checkLenght = str.Length == 4;
             uint num;
             bool checkNum = UInt32.TryParse(str, out num);
@@ -37,7 +41,6 @@ namespace BullsAndCows
             bool checkUniq = count == str.Length;
             if (checkLenght == false | checkNum == false | checkUniq == false)
             {
-                Console.WriteLine("Неверный ввод данных!");
                 return false;
             }
             return true;
