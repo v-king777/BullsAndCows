@@ -12,20 +12,21 @@ namespace BullsAndCows
             string str = strRaw.Replace(" ", "");
             bool checkLenght = str.Length == 4;
 
-            bool checkUniq = true;
-            for (int i = 0; i < str.Length - 2; i++)
+            int count = 0;
+            for (int i = 0; i < str.Length; i++)
             {
-                for (int j = 1; j < str.Length - i; j++) // Epic fail
+                for (int j = 0; j < str.Length; j++)
                 {
                     if (str[i] == str[j])
                     {
-                        checkUniq = false;
+                        count++;
                     }
                 }
             }
-            
-            ushort num;
-            bool checkNum = UInt16.TryParse(str, out num);
+            bool checkUniq = count == str.Length;
+
+            uint num;
+            bool checkNum = UInt32.TryParse(str, out num);
 
             Console.WriteLine("Проверка на длину - {0}", checkLenght);
             Console.WriteLine("Проверка на число - {0}", checkNum);
