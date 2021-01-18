@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BullsAndCows
+namespace BullsAndCows //Быки и коровы
 {
     class Program
     {
@@ -9,7 +9,7 @@ namespace BullsAndCows
             Console.Write("Введите 4-х значное целое число из разных цифр: ");
             string s = Console.ReadLine();
             CheckString(s);
-            while (CheckString(s) == false) // Повторять запрос числа, пока не будет введено верное значение
+            while (CheckString(s) == false) //Повторять запрос числа, пока не будет введено верное значение
             {
                 Console.WriteLine("Неверный ввод данных!");
                 Console.Write("Введите 4-х значное целое число из разных цифр: ");
@@ -18,15 +18,15 @@ namespace BullsAndCows
             }
             
             Console.WriteLine("\nДля продолжения нажмите любую клавишу . . .");
-            Console.ReadKey(); // Выход из программы
+            Console.ReadKey(); //Выход из программы
         }
 	
-        static bool CheckString(string rawStr) // Блок проверки числа
+        static bool CheckString(string rawStr) //Блок проверки числа
         {
-            string str = rawStr.Replace(" ", ""); // Удаление пробелов
-            bool checkLenght = str.Length == 4; // Проверка на длину
+            string str = rawStr.Replace(" ", ""); //Удаление пробелов
+            bool checkLenght = str.Length == 4; //Проверка на длину
             uint num;
-            bool checkNum = UInt32.TryParse(str, out num); // Проверка на число
+            bool checkNum = UInt32.TryParse(str, out num); //Проверка на число
             int count = 0;
             for (int i = 0; i < str.Length; i++)
             {
@@ -38,8 +38,8 @@ namespace BullsAndCows
                     }
                 }
             }
-            bool checkUniq = count == str.Length; // Проверка цифр на уникальность
-            if (checkLenght == false | checkNum == false | checkUniq == false)
+            bool checkUniq = count == str.Length; //Проверка цифр на уникальность
+            if (checkLenght == false || checkNum == false || checkUniq == false)
             {
                 return false;
             }
