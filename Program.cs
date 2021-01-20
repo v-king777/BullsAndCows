@@ -6,16 +6,37 @@ namespace BullsAndCows //Быки и коровы
     {
         static void Main(string[] args)
         {
-            Console.Write("Введите 4 не повторяющиеся цифры: ");
-            string s = Console.ReadLine();
-            while (CheckString(s) == false) //Повторять, пока не будет введено верное значение
+            string question = "";
+
+            do //Повторять, пока не будет сгенерировано верное значение
+            {
+                string[] array = new string[4];
+
+                for (int i = 0; i < 4; i++)
+                {
+                    Random rnd = new Random();
+                    int value = rnd.Next(0, 9);
+                    string s = value.ToString();
+                    array[i] = s;
+                }
+
+                question = String.Join("", array);
+                Console.WriteLine(question);
+
+            } while (CheckString(question) == false);
+
+            Console.WriteLine("Компьютер загадал число!");
+            Console.WriteLine("\nНайди число, задуманное компьютером!");
+            string answer = Console.ReadLine();
+
+            while (CheckString(answer) == false) //Повторять, пока не будет введено верное значение
             {
                 Console.WriteLine("Неверный ввод данных!");
-                Console.Write("Введите 4 не повторяющиеся цифры: ");
-                s = Console.ReadLine();
+                Console.WriteLine("Нужны 4 не повторяющиеся цифры!");
+                answer = Console.ReadLine();
             }
 
-            Console.WriteLine("\nДля продолжения нажмите любую клавишу . . .");
+            Console.WriteLine("\nДля продолжения нажми любую клавишу . . .");
             Console.ReadKey();
         }
         
