@@ -6,12 +6,12 @@ namespace BullsAndCows //Быки и коровы
     {
         static void Main(string[] args)
         {
-            Console.Write("Введите 4-х значное целое число из разных цифр: ");
+            Console.Write("Введите 4 не повторяющиеся цифры: ");
             string s = Console.ReadLine();
             while (CheckString(s) == false) //Повторять, пока не будет введено верное значение
             {
                 Console.WriteLine("Неверный ввод данных!");
-                Console.Write("Введите 4-х значное целое число из разных цифр: ");
+                Console.Write("Введите 4 не повторяющиеся цифры: ");
                 s = Console.ReadLine();
             }
 
