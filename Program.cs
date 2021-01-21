@@ -6,9 +6,20 @@ namespace BullsAndCows //Быки и коровы
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Игра \"Быки и коровы\"\n");
+            Console.WriteLine("Компьютер загадывает число, ты угадываешь. Всё просто!\n");
+            Console.WriteLine("Нажми <F1> для справки или любую клавишу для продолжения . . .\n");
+
+            if (Console.ReadKey().Key == ConsoleKey.F1)
+            {
+                Console.WriteLine("Правила игры");
+                Console.WriteLine("\nДля продолжения нажми любую клавишу . . .");
+                Console.ReadKey();
+            }
+
             string question = "";
 
-            do //Повторять, пока не будет сгенерировано верное значение
+            do //Генератор последовательности случайных чисел
             {
                 string[] array = new string[4];
 
@@ -25,22 +36,27 @@ namespace BullsAndCows //Быки и коровы
 
             } while (CheckString(question) == false);
 
-            Console.WriteLine("Компьютер загадал число!");
-            Console.WriteLine("\nНайди число, задуманное компьютером!");
+            Console.WriteLine("Найди число, задуманное компьютером!");
+
             string answer = Console.ReadLine();
 
-            while (CheckString(answer) == false) //Повторять, пока не будет введено верное значение
+            while (CheckString(answer) == false) //Повторять ввод, пока не будет получено верное значение
             {
                 Console.WriteLine("Неверный ввод данных!");
                 Console.WriteLine("Нужны 4 не повторяющиеся цифры!");
                 answer = Console.ReadLine();
             }
 
+            if (question == answer)
+            {
+                Console.WriteLine("Угадал с первой попытки!!! Да ты экстрасенс!!!");
+            }
+
             Console.WriteLine("\nДля продолжения нажми любую клавишу . . .");
             Console.ReadKey();
         }
         
-        static bool CheckString(string rawStr) //Блок проверки числа
+        static bool CheckString(string rawStr) //Блок проверки последовательности чисел
         {
             string str = rawStr.Replace(" ", ""); //Удаление пробелов
             
