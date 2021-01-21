@@ -48,18 +48,17 @@ namespace BullsAndCows //Быки и коровы
                     }
 
                     question = String.Join("", array);
-                    //Console.WriteLine(question);
 
                 } while (CheckString(question) == false);
 
-                Console.WriteLine("Найди число, задуманное компьютером!");
+                Console.WriteLine("Найди число, задуманное компьютером!\n");
 
                 // Пользователь делает ход
                 string answer;
                 int step = 1;
                 do
                 {
-                    Console.WriteLine("\nНомер хода {0}\n", step);
+                    Console.WriteLine("Номер хода {0}\n", step);
                     answer = Console.ReadLine().Replace(" ", "");
                     while (CheckString(answer) == false)
                     {
@@ -84,7 +83,7 @@ namespace BullsAndCows //Быки и коровы
                     if (question != answer)
                     {
                         Console.WriteLine("\nКоличество быков {0}", BullsCount(question, answer));
-                        Console.WriteLine("Количество коров {0}", CowsCount(question, answer));
+                        Console.WriteLine("Количество коров {0}\n", CowsCount(question, answer));
                     }
 
                     step++;
