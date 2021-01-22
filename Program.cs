@@ -141,8 +141,7 @@ namespace BullsAndCows //Быки и коровы
             }
 
             // Проверка на число
-            uint num;
-            bool checkNum = UInt32.TryParse(str, out num);
+            bool checkNum = UInt32.TryParse(str, out _);
             if (checkNum == false)
             {
                 return false;
