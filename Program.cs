@@ -34,22 +34,7 @@ namespace BullsAndCows //Быки и коровы
             while (true)
             {
                 // Компьютер генерирует число
-                string question;
-                do
-                {
-                    Random rnd = new Random();
-                    int value = rnd.Next(123, 9999);
-                    if (value < 1000)
-                    {
-                        question = "0" + value.ToString();
-                    }
-                    else
-                    {
-                        question = value.ToString();
-                    }
-
-                } while (CheckString(question) == false);
-
+                string question = Randomizer();
                 Console.WriteLine("Найди число, задуманное компьютером!\n");
 
                 // Пользователь делает ход
@@ -96,6 +81,28 @@ namespace BullsAndCows //Быки и коровы
                     return;
                 }
             }
+        }
+
+        // Рандомайзер
+        static string Randomizer()
+        {
+            string random;
+            do
+            {
+                Random rnd = new Random();
+                int value = rnd.Next(123, 9999);
+                if (value < 1000)
+                {
+                    random = "0" + value.ToString();
+                }
+                else
+                {
+                    random = value.ToString();
+                }
+
+            } while (CheckString(random) == false);
+
+            return random;
         }
 
         // Блок подсчёта быков
