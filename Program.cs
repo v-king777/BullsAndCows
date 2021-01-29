@@ -16,7 +16,7 @@ namespace BullsAndCows //Быки и коровы
             if (Console.ReadKey(true).Key == ConsoleKey.F1)
             {
                 Console.WriteLine(" *Правила игры*\n");
-                Console.WriteLine("Компьютер задумывает четыре различные цифры из 0, 1, 2, ... 9.");
+                Console.WriteLine("Компьютер задумывает четыре различные цифры от 0 до 9.");
                 Console.WriteLine("Игрок делает ходы, чтобы узнать эти цифры и их порядок.");
                 Console.WriteLine("Каждый ход состоит из четырёх цифр, 0 может стоять на первом месте.");
                 Console.WriteLine("В ответ компьютер показывает число отгаданных цифр,");
@@ -105,7 +105,7 @@ namespace BullsAndCows //Быки и коровы
             return random;
         }
 
-        // Блок подсчёта быков
+        // Подсчёт быков
         static int BullsCount(string str1, string str2)
         {
             int bulls = 0;
@@ -120,7 +120,7 @@ namespace BullsAndCows //Быки и коровы
             return bulls;
         }
 
-        // Блок подсчёта коров
+        // Подсчёт коров
         static int CowsCount(string str1, string str2)
         {
             int count = 0;
@@ -139,7 +139,7 @@ namespace BullsAndCows //Быки и коровы
             return cows;
         }
 
-        // Блок проверки последовательности чисел
+        // Проверка последовательности чисел
         static bool CheckString(string str)
         {
             // Проверка на длину
