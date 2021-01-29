@@ -42,8 +42,7 @@ namespace BullsAndCows //Быки и коровы
                     {
                         Random rnd = new Random();
                         int value = rnd.Next(0, 9);
-                        string s = value.ToString();
-                        array[i] = s;
+                        array[i] = value.ToString();
                     }
 
                     question = String.Join("", array);
