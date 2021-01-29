@@ -35,10 +35,9 @@ namespace BullsAndCows //Быки и коровы
             {
                 // Компьютер генерирует число
                 string question;
+                string[] array = new string[4];
                 do
                 {
-                    string[] array = new string[4];
-
                     for (int i = 0; i < array.Length; i++)
                     {
                         Random rnd = new Random();
@@ -48,7 +47,7 @@ namespace BullsAndCows //Быки и коровы
                     }
 
                     question = String.Join("", array);
-
+                    
                 } while (CheckString(question) == false);
 
                 Console.WriteLine("Найди число, задуманное компьютером!\n");
@@ -87,6 +86,7 @@ namespace BullsAndCows //Быки и коровы
                     }
 
                     step++;
+
                 } while (question != answer);
 
                 // Выход
@@ -109,6 +109,7 @@ namespace BullsAndCows //Быки и коровы
                     bulls++;
                 }
             }
+
             return bulls;
         }
 
@@ -126,6 +127,7 @@ namespace BullsAndCows //Быки и коровы
                     }
                 }
             }
+
             int cows = count - BullsCount(str1, str2);
             return cows;
         }
@@ -148,23 +150,17 @@ namespace BullsAndCows //Быки и коровы
             }
 
             // Проверка цифр на уникальность
-            int count = 0;
-            for (int i = 0; i < str.Length; i++)
+            for (int i = 0; i < str.Length-1; i++)
             {
-                for (int j = 0; j < str.Length; j++)
+                for (int j = i + 1; j < str.Length; j++)
                 {
                     if (str[i] == str[j])
                     {
-                        count++;
+                        return false;
                     }
                 }
             }
-            bool checkUniq = count == str.Length;
-            if (checkUniq == false)
-            {
-                return false;
-            }
-
+            
             return true;
         }
     }
