@@ -35,18 +35,19 @@ namespace BullsAndCows //Быки и коровы
             {
                 // Компьютер генерирует число
                 string question;
-                string[] array = new string[4];
                 do
                 {
-                    for (int i = 0; i < array.Length; i++)
+                    Random rnd = new Random();
+                    int value = rnd.Next(123, 9999);
+                    if (value < 1000)
                     {
-                        Random rnd = new Random();
-                        int value = rnd.Next(0, 9);
-                        array[i] = value.ToString();
+                        question = "0" + value.ToString();
+                    }
+                    else
+                    {
+                        question = value.ToString();
                     }
 
-                    question = String.Join("", array);
-                    
                 } while (CheckString(question) == false);
 
                 Console.WriteLine("Найди число, задуманное компьютером!\n");
@@ -149,7 +150,7 @@ namespace BullsAndCows //Быки и коровы
             }
 
             // Проверка цифр на уникальность
-            for (int i = 0; i < str.Length-1; i++)
+            for (int i = 0; i < str.Length - 1; i++)
             {
                 for (int j = i + 1; j < str.Length; j++)
                 {
@@ -159,7 +160,7 @@ namespace BullsAndCows //Быки и коровы
                     }
                 }
             }
-            
+
             return true;
         }
     }
